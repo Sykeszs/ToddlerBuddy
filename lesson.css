@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    margin: 0%;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/*-----------------------------------------HEADER----------------------------------------------------- */
+header{
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: background-color 0.4s ease-in-out;
+    background-color: #00000000;
+    box-shadow: inset 0px -7px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled{
+    background-color: rgb(0, 0, 0);
+    opacity: 0.98;
+}
+
+header .title{
+    color: #000000;
+    font-size: 2.7em;
+    font-weight: 700;
+    font-variant-caps: petite-caps;
+    text-decoration: none;
+    padding-left: 50px;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+}
+
+header.scrolled .title{
+    color: #ffffff;
+}
+
+
+header .navigation{
+    position: relative;
+    right: 0px;
+    padding-right: 0px;
+}
+
+header .navigation .navitem a{
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    margin: 10px;
+    transition: 0.3s ease;
+    padding-right: 20px;
+    transition: color 0.4s ease-in-out;
+}
+
+header.scrolled .navigation .navitem a{
+    color: #ffffff;
+}
+
+header .navigation .navitem a:before{
+    content: '';
+    position: absolute;
+    background: #000000;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navitem a:hover:before{
+    width: 100%;
+}
+
+
+/*-----------------------------------------SECTION----------------------------------------------------- */
+.sec1{
+    width: 100%;
+    height: 43vh;
+    background-color: pink;
+    position: relative;
+    display: inline-flex;
+}
+
+.sec1 h1{
+    padding: 0%;
+    margin: 0%;
+}
+
+.titlee{
+    width: 36%;
+    margin: 3% 3% 3% 7%;
+}
+
+.titlee h1{
+    font-size: 40px;
+}
+
+.Contact{
+    width: 40%;
+    margin: 0 5%;
+}
+
+.Contact h3{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    font-weight: 500;
+    position: relative;
+}
+
+.form-control{
+    width: 100%;
+}
+
+.form-group h5{
+    margin: 1%;
+}
+
+#btn{
+    width: 100%;
+    background-color: #e91e63;
+    padding: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+/*-----------------------sec2----------------------------*/
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .book {
+    width: 120px;
+    height: 150px;
+    left: 70px;
+    margin: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    cursor: pointer;
+    z-index: 777;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Hide overflowing parts of the image */
+  }
+
+  .book3 {
+    width: 120px;
+    height: 150px;
+    left: 70px;
+    margin: 10px 260px 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    cursor: pointer;
+    z-index: 777;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Hide overflowing parts of the image */
+  }
+  
+  .book img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px; /* To match the rounded corners of the book container */
+  }
+
+
+  /* The Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 70px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(146, 146, 146, 0.712);
+  }
+  /* Modal Content (the book zoomed-in view) */
+  .modal-content {
+    margin: auto;
+    padding: 10px;
+    max-width: 900px;
+    max-height: 1100px;
+    background-color: #fff;
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
+    height: 500px;
+  }
+  /* Close Button */
+  .close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  /* CSS Animation */
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .grid-container .img{
+    position: absolute; 
+    left: 0;
+    padding: 10px;
+    padding-top: 50px;
+  }
+
+  .grid-container .imgg{
+    position: absolute; 
+    right: 0;
+    padding: 10px;
+    padding-top: 50px;
+  }
+  

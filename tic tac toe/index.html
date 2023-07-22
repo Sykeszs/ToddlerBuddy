@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="icon" type="Image/x-icon" href="toddler-buddy-logo (1).png">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 4px;
+      margin-bottom: 20px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      border: 2px solid #333;
+      cursor: pointer;
+    }
+    #score {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .exit-button {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #999494c5;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    z-index: 999;
+  }
+  
+  header{
+    z-index: 998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: background-color 0.4s ease-in-out;
+    background-color: #00000000;
+    box-shadow: inset 0px -7px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled{
+    background-color: rgb(0, 0, 0);
+    opacity: 0.98;
+}
+
+header .title{
+    color: #000000;
+    font-size: 2.7em;
+    font-weight: 700;
+    font-variant-caps: petite-caps;
+    text-decoration: none;
+    padding-left: 80px;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+}
+
+header.scrolled .title{
+    color: #ffffff;
+}
+
+h1{
+    margin-top: 120px;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="title">Toddler Buddy</a>
+    </header>
+     <button class="exit-button" onclick="exitGame()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path fill="white" d="M14.41 7.41L13 6l-6 6 6 6 1.41-1.41L9.83 12z"/>
+          </svg>
+    </button>
+  <h1>Tic Tac Toe</h1>
+  <div id="score">Score: 0</div>
+  <div class="board" id="board"></div>
+  <div>
+    <label for="level">Select Level:</label>
+    <select id="level" onchange="startGame()">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </div>
+  <script>
+    let board;
+    let currentPlayer;
+    let isGameEnd;
+    let humanScore = 0;
+    let computerScore = 0;
+    const humanPlayer = 'X';
+    const computerPlayer = 'O';
+
+    function createBoard() {
+      board = Array.from({ length: 9 }, () => null);
+      const boardElement = document.getElementById('board');
+      boardElement.innerHTML = '';
+
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.setAttribute('data-index', i);
+        cell.addEventListener('click', () => handleMove(i));
+        boardElement.appendChild(cell);
+      }
+    }
+
+    function startGame() {
+      createBoard();
+      currentPlayer = humanPlayer;
+      isGameEnd = false;
+
+      const level = document.getElementById('level').value;
+
+      if (level === 'easy') {
+        computerPlay = easyComputerPlay;
+      } else if (level === 'medium') {
+        computerPlay = mediumComputerPlay;
+      } else if (level === 'hard') {
+        computerPlay = hardComputerPlay;
+      }
+
+      if (currentPlayer === computerPlayer) {
+        computerPlay();
+      }
+    }
+
+    function handleMove(index) {
+      if (board[index] === null && !isGameEnd && currentPlayer === humanPlayer) {
+        board[index] = humanPlayer;
+        document.querySelector(`[data-index="${index}"]`).textContent = humanPlayer;
+        currentPlayer = computerPlayer;
+
+        if (!checkWinner(humanPlayer) && !checkTie()) {
+          computerPlay();
+        }
+      }
+    }
+
+    function easyComputerPlay() {
+      const emptyCells = board.reduce((acc, cell, index) => (cell === null ? [...acc, index] : acc), []);
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      const selectedCell = emptyCells[randomIndex];
+
+      board[selectedCell] = computerPlayer;
+      document.querySelector(`[data-index="${selectedCell}"]`).textContent = computerPlayer;
+      currentPlayer = humanPlayer;
+
+      checkWinner(computerPlayer);
+      checkTie();
+    }
+
+    function mediumComputerPlay() {
+      // Implement medium level computer play here (optional)
+      // For the sake of simplicity, we'll use the easy level computer play for medium as well.
+      easyComputerPlay();
+    }
+
+    function hardComputerPlay() {
+      // Implement hard level computer play here (optional)
+      // For the sake of simplicity, we'll use the easy level computer play for hard as well.
+      easyComputerPlay();
+    }
+
+    function checkWinner(player) {
+      const winningCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+      ];
+
+      for (const combination of winningCombinations) {
+        const [a, b, c] = combination;
+        if (board[a] === player && board[b] === player && board[c] === player) {
+          isGameEnd = true;
+          setTimeout(() => {
+            alert(`${player} wins!`);
+            updateScore(player);
+            startGame(); // Start a new game after the alert
+          }, 100);
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function checkTie() {
+      if (!board.includes(null)) {
+        isGameEnd = true;
+        setTimeout(() => {
+          alert("It's a tie!");
+          startGame(); // Start a new game after the alert
+        }, 100);
+        return true;
+      }
+      return false;
+    }
+
+    function updateScore(player) {
+      if (player === humanPlayer) {
+        humanScore++;
+      } else {
+        computerScore++;
+      }
+      document.getElementById('score').textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
+    }
+
+    startGame();
+
+    function exitGame() {
+    if (confirm('Are you sure you want to exit?')) {
+      // Perform any cleanup or redirect here if needed before exiting
+      window.location.href = '../activity.html'; // Replace 'exit_page.html' with the desired exit page URL
+    }
+  }
+  </script>
+</body>
+</html>

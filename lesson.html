@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons</title>
+
+    <link rel="stylesheet" href="lesson.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="main.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("3yRx4zz8x1BLXe4-J");
+      })();
+    </script>
+<link rel="icon" type="Image/x-icon" href="toddler-buddy-logo (1).png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="title">Toddler Buddy</a>
+        <div class="navigation">
+            <div class="navitem">
+                <a href="index.html">Home</a>
+                <a href="lesson.html">Lesson</a>
+                <a href="activity.html">Activity</a>
+                <a href="story.html">Story</a>
+                <a href="contact.html">Contacts</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </header>
+    <section class="sec1">  
+        <div class="titlee">
+            <h1>Fun and Lessons</h1>
+            <p>
+              Our captivating virtual realm awaits, where endless curiosity meets contagious giggles! Little Learners' Wonderland is committed to unlocking the boundless potential in each toddler. Our thoughtfully designed lessons are crafted to ignite imaginations and foster an enduring love for learning.</p>
+        </div>
+        <div class="Contact">
+            <h3>Tell us your suggestion.</h3>
+            <div class="form-group">
+                <h5 for="email">Email</h5>
+                <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+              </div>
+              <div class="form-group">
+                <h5 for="message">Message</h5>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+              <button id="btn" class="btn btn-primary" onclick="sendMail()">Submit</button>
+            </div>
+    </section>
+    <section>
+        <div class="grid-container"> 
+          <img class="img" src="lesson/bookshelf.png" alt="" width="600px" height="300px">
+          <img class="imgg" src="lesson/bookshelf.png" alt="" width="600px" height="300px">
+          <div class="book" onclick="showBookZoom('lesson/docs/alpha.html')">
+            <img class="bk" src="lesson/docs/b1.jpg" alt="">
+          </div>
+          <div class="book" onclick="showBookZoom('lesson/docs - Copy/index.html')">
+            <img src="lesson/docs - Copy/b2.jpg" alt="">
+          </div><div class="book3" onclick="showBookZoom('lesson/docs - Copy - Copy/index.html')">
+            <img class="bk" src="lesson/docs - Copy - Copy/b3.jpg" alt="" width="120px">
+          </div>
+          <div class="book" onclick="showBookZoom('lesson/docs - Copy - Copy - Copy/index.html')">
+            <img class="bk" src="lesson/docs - Copy - Copy - Copy/b4.jpg" alt="">
+          </div><div class="book" onclick="showBookZoom('lesson/docs - Copy - Copy - Copy - Copy/index.html')">
+            <img class="bk" src="lesson/docs - Copy - Copy - Copy - Copy/b5.jpg" alt="">
+          </div>
+          <div class="book" onclick="showBookZoom('lesson/docs - Copy - Copy - Copy - Copy (2)/index.html')">
+            <img class="bk" src="lesson/docs - Copy - Copy - Copy - Copy (2)/b6.jpg" alt="">
+          </div>
+        </div>
+        
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close" onclick="hideBookZoom()">&times;</span>
+            <iframe id="bookZoomFrame" frameborder="0" width="100%" height="100%"></iframe>
+          </div>
+        </div>
+    </section>
+  <script>
+      function showBookZoom(bookURL) {
+        document.getElementById("bookZoomFrame").src = bookURL;
+        document.getElementById("myModal").style.display = "block";
+      }
+
+      function hideBookZoom() {
+        document.getElementById("myModal").style.display = "none";
+        document.getElementById("bookZoomFrame").src = "";
+      }
+    </script>
+
+    <script>
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        })
+    </script>
+
+
+</body>
+</html>

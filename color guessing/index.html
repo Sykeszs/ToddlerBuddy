@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Guessing Game</title>
+  <link rel="icon" type="Image/x-icon" href="toddler-buddy-logo (1).png">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #8a8a8a63;
+      font-family: Arial, sans-serif;
+    }
+    .choices-container {
+      display: flex;
+    }
+    .choice {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    #question {
+      font-size: 50px;
+      font-weight: bold;
+      padding:40px;
+    }
+
+    .exit-button {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #999494c5;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    z-index: 999;
+  }
+  
+  header{
+    z-index: 998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: background-color 0.4s ease-in-out;
+    background-color: #00000000;
+    box-shadow: inset 0px -7px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled{
+    background-color: rgb(0, 0, 0);
+    opacity: 0.98;
+}
+
+header .title{
+    color: #000000;
+    font-size: 2.7em;
+    font-weight: 700;
+    font-variant-caps: petite-caps;
+    text-decoration: none;
+    padding-left: 80px;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+}
+
+header.scrolled .title{
+    color: #ffffff;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="title">Toddler Buddy</a>
+    </header>
+     <button class="exit-button" onclick="exitGame()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path fill="white" d="M14.41 7.41L13 6l-6 6 6 6 1.41-1.41L9.83 12z"/>
+          </svg>
+    </button>
+  <h1>Color Guessing Game</h1>
+  <p id="question">Guess the color:</p>
+  <div class="choices-container" id="choices">
+    <div class="choice" onclick="handleChoiceClick(this)"></div>
+    <div class="choice" onclick="handleChoiceClick(this)"></div>
+    <div class="choice" onclick="handleChoiceClick(this)"></div>
+    <div class="choice" onclick="handleChoiceClick(this)"></div>
+  </div>
+  <script>
+    const colors = ["Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "Brown", "Gray", "Cyan"];
+    let correctColor;
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function newGame() {
+      shuffleArray(colors);
+      correctColor = colors[Math.floor(Math.random() * 4)];
+
+      const question = document.getElementById("question");
+      question.textContent = `Guess the color: ${correctColor}`;
+
+      const choices = document.querySelectorAll(".choice");
+      choices.forEach((choice, index) => {
+        choice.style.backgroundColor = colors[index].toLowerCase();
+      });
+    }
+
+    function handleChoiceClick(clickedChoice) {
+      const selectedColor = clickedChoice.style.backgroundColor;
+      if (selectedColor === correctColor.toLowerCase()) {
+        alert("Congratulations! You guessed the correct color!");
+      } else {
+        alert("Oops! That's not the correct color. Try again!");
+      }
+      newGame();
+    }
+
+    newGame();
+
+    function exitGame() {
+    if (confirm('Are you sure you want to exit?')) {
+      // Perform any cleanup or redirect here if needed before exiting
+      window.location.href = '../activity.html'; // Replace 'exit_page.html' with the desired exit page URL
+    }
+  }
+  </script>
+</body>
+</html>

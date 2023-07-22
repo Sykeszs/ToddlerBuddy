@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="icon" type="Image/x-icon" href="toddler-buddy-logo (1).png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="title">Toddler Buddy</a>
+        <div class="navigation">
+            <div class="navitem">
+                <a href="index.html">Home</a>
+                <a href="lesson.html">Lesson</a>
+                <a href="activity.html">Activity</a>
+                <a href="story.html">Story</a>
+                <a href="contact.html">Contacts</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </header>
+    <section class="f">
+        <div class="first">
+            <h1>About Us</h1>
+        </div>
+    </section>
+    <div class="main-content2">
+        <div class="content-text">
+            <h2>Welcome to Toddler Buddy - Your Partner in Early Learning!</h2>
+            <p>At Toddler Buddy, we understand that the early years of a child's life are critical for their overall development and growth. That's why we are here to be your trusted companion in this exciting journey of nurturing and educating your toddler.</p>
+        </div>
+        <div class="content-images">
+            <img src="about1.jpg" alt="Left Image" width="500" height="300">
+    </div>
+    </div>
+    <div class="content-textt">
+        <h2>Our Mission</h2>
+        <p>At Toddler Buddy, our mission is to provide parents and caregivers with the resources, tools, and support they need to create a stimulating and loving environment for their little ones. We believe that every child is unique and deserves the best start in life, and we are dedicated to empowering parents with the knowledge to make a positive impact on their child's early education.</p>
+    </div>
+<div class="main-content2-2">
+    <div class="content-text">
+        <h2>Why Choose Toddler Buddy?</h2>
+        <p>
+
+            1. Expert-Backed Content: Our team consists of early childhood educators, pediatricians, and child development specialists who curate and create content that is based on the latest research and best practices in early education.
+            <br><br>
+
+            2. Age-Appropriate Activities: We offer a diverse range of age-appropriate activities that are designed to engage your toddler's curiosity and foster their cognitive, emotional, and physical development.
+            <br><br>
+            3. Interactive Learning: Learning should be fun! Our interactive learning materials and games are tailored to make education an enjoyable experience for your little one.
+            <br><br>
+            4. Parental Guidance: We understand that being a parent is both rewarding and challenging. Our platform is not only child-centric but also offers valuable tips and guidance to parents to navigate through the early learning phase effectively.
+            <br><br>
+            5. Community Support: Connect with a like-minded community of parents and caregivers through our platform. Share experiences, exchange ideas, and build a support network that will enrich your parenting journey.</p>
+    </div>
+    <div class="content-images">
+        <img src="about2.jpg" alt="Left Image" width="500" height="300">
+</div>
+</div>
+<div class="main-content2-1">
+    <div class="content-images">
+        <img src="about3.jpg" alt="Left Image" width="500" height="300">
+</div>
+<div class="content-text">
+        <h2>Our Approach:</h2>
+        <p>
+            At Toddler Buddy, we follow a holistic approach to early learning. We focus on five key areas to ensure a well-rounded development of your toddler:
+            <br><br>
+           1. Cognitive Development: Stimulate your child's thinking, problem-solving, and language skills through engaging activities that encourage exploration and creativity.
+            <br><br>
+            2. Physical Development: Help your toddler enhance their motor skills and coordination with fun exercises and play-based movements.
+            <br><br>
+            3. Emotional Development: Foster emotional intelligence and social skills, helping your child navigate their feelings and build healthy relationships with others.
+            <br><br>
+            4. Language Development: Encourage language acquisition and communication skills through storytelling, music, and interactive communication exercises.
+            <br><br>
+            5. Play-Based Learning: We believe that play is the natural way young children learn best. Our play-based learning approach enables your child to explore the world around them at their own pace.</p>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer2">
+                <img src="toddler-buddy-logo (1).png" alt="" width="300px" height="250px">
+                <ul>
+                    <li><a href="index.html">Toddler Buddy</a></li>
+                </ul>
+            </div>
+            <div class="footer1">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="lesson.html">Lessons</a></li>
+                    <li><a href="story.html">Story</a></li>
+                    <li><a href="activity.html">Activity</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+            <div class="footer1">
+                <h4>Contact Us</h4>
+                <div class="Contact">
+                <div class="form-group">
+                    <h5 for="email">Email</h5>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+                  </div>
+                  <div class="form-group">
+                    <h5 for="message">Message</h5>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                  </div>
+                  <button id="btn" class="btn btn-primary" onclick="sendMail()">Submit</button>
+                </div>
+                <h4>Follow</h4>
+                <div class="contactlinks">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+    <p>&copy; 2023 Toddler Buddy. All rights reserved.</p>
+
+
+</footer>
+
+    <script>
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        })
+    </script>
+</body>
+</html>

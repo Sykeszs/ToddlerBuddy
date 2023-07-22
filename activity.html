@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <link rel="icon" type="Image/x-icon" href="toddler-buddy-logo (1).png">
+    <link rel="stylesheet" href="activity.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="main.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("3yRx4zz8x1BLXe4-J");
+      })();
+    </script>
+
+</head>
+<body>
+    <header>
+        <a href="index.html" class="title">Toddler Buddy</a>
+        <div class="navigation">
+            <div class="navitem">
+                <a href="index.html">Home</a>
+                <a href="lesson.html">Lesson</a>
+                <a href="activity.html">Activity</a>
+                <a href="story.html">Story</a>
+                <a href="contact.html">Contacts</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </header>
+    <section class="sec1">  
+        <div class="titlee">
+            <h1>Activity and Games</h1>
+            <p>
+                Ignite your toddler's love for learning through captivating activities and games. Join us on a magical journey of play and discovery!</p>
+        </div>
+        <div class="Contact">
+            <h3>Tell us your suggestion.</h3>
+            <div class="form-group">
+                <h5 for="email">Email</h5>
+                <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+              </div>
+              <div class="form-group">
+                <h5 for="message">Message</h5>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+              <button id="btn" class="btn btn-primary" onclick="sendMail()">Submit</button>
+            </div>
+    </section>
+    <section class="container">
+        <div class="grid-container">
+            <a href="game/game.html">
+            <div class="grid-item">
+                <img src="bm.png" alt="">
+                <h1>Basic Math</h1>
+            </div></a>
+            <a href="memory game/index.html">
+            <div class="grid-item">
+                <img src="mg.png" alt="">
+                <h1>Memory Game</h1>
+            </div></a>
+            <a href="color guessing/index.html">
+            <div class="grid-item">
+                <img src="gc.png" alt="">
+                <h1>Guess The Color</h1>
+            </div>  </a>
+            <a href="tic tac toe/index.html">
+            <div class="grid-item">
+                <img src="ttt.png" alt="">
+                <h1>Tic Tac Toe</h1>
+            </div>  </a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        })
+    </script>
+</body>
+</html>

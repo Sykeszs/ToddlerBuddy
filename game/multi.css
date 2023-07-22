@@ -1,0 +1,135 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+body{
+    margin: 0%;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    background-color: rgb(201, 201, 201);
+}
+
+/*-----------------------------------------HEADER----------------------------------------------------- */
+header{
+    z-index: 999;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: 0.5s ease;
+    background-color: rgb(245, 255, 112);
+}
+
+header .title{
+    color: #000000;
+    font-size: 2.7em;
+    font-weight: 700;
+    font-variant-caps: petite-caps;
+    text-decoration: none;
+    padding-left: 50px;
+}
+
+header .navigation{
+    position: relative;
+    right: 0px;
+    padding-right: 0px;
+}
+
+header .navigation .navitem a{
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    margin: 10px;
+    transition: 0.3s ease;
+    padding-right: 20px;
+}
+
+header .navigation .navitem a:before{
+    content: '';
+    position: absolute;
+    background: #000000;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navitem a:hover:before{
+    width: 100%;
+}
+
+/*-----------------------------------------PROBLEM----------------------------------------------------- */
+
+.problem{
+    display: grid;
+    grid-template-columns: 82% 18%;
+    position: relative;
+    height: 80%;
+    font-family: 'Luckiest Guy';
+}
+
+.equation{
+    font-size: 65px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 15%;
+    margin: 10px ;
+}
+
+.equation h1{
+    display: inline;
+    padding: 20px;
+}
+
+.answer{
+    font-size: 60px;
+    margin-right: 10px;
+    padding: 0 10px;
+}
+
+.answer h1{
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#choices1{
+    background-color: rgb(105, 200, 255);
+    transition: 1s;
+    margin-bottom: 20px;
+}
+#choices1:hover{
+    color: rgb(105, 200, 255);
+    background-color: white;
+}
+
+#choices2{
+    background-color: rgb(120, 255, 120);
+    transition: 1s;
+    margin-bottom: 20px;
+}
+#choices2:hover{
+    color: rgb(120, 255, 120);
+    background-color: white;
+}
+
+#choices3{
+    background-color: rgb(236, 99, 111);
+    transition: 1s;
+    margin-bottom: 10px;
+}
+#choices3:hover{
+    color: rgb(236, 99, 111);
+    background-color: white;
+}
